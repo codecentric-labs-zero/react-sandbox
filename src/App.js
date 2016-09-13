@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Grid, Navbar, Nav, NavItem, Button } from 'react-bootstrap';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, IndexLink, browserHistory } from 'react-router';
 import { LinkContainer } from 'react-router-bootstrap';
 import { connect, Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -36,7 +36,7 @@ class Page extends Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#">react-sandbox</a>
+              <IndexLink to="/">react-sandbox</IndexLink>
             </Navbar.Brand>
           </Navbar.Header>
           <Nav>
@@ -124,7 +124,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router history={hashHistory}>
+        <Router history={browserHistory}>
           <Route path="/" component={Page} auth={auth}>
             <IndexRoute component={HomeContainer}/>
             <Route path="categories" component={Categories} />

@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "jsdom": "^9.5.0",
+    "react-addons-test-utils": "^15.3.1",
     "react-scripts": "0.4.1"
   },
   "dependencies": {
