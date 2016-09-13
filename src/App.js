@@ -105,7 +105,6 @@ class Profile extends Component {
 
 class Login extends Component {
   render() {
-    console.log(this.props);
     return (
       <div>
         <p>Login</p>
