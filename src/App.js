@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Grid, Navbar, Nav, NavItem, Button } from 'react-bootstrap';
-import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { LinkContainer } from 'react-router-bootstrap';
 import { connect, Provider } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
@@ -9,9 +10,6 @@ import { createStore } from 'redux';
 import AuthService from './AuthService'
 
 const auth = new AuthService(process.env.REACT_APP_AUTH0_CLIENT_ID, process.env.REACT_APP_AUTH0_DOMAIN);
-
-console.log(process.env.REACT_APP_AUTH0_CLIENT_ID);
-console.log(process.env.REACT_APP_AUTH0_DOMAIN);
 
 function increment() {
   return {
@@ -42,8 +40,12 @@ class Page extends Component {
             </Navbar.Brand>
           </Navbar.Header>
           <Nav>
-            <NavItem><Link to="/categories">Categories</Link></NavItem>
-            <NavItem><Link to="/profile">Profile</Link></NavItem>
+            <LinkContainer to="/categories">
+              <NavItem>Categories</NavItem>
+            </LinkContainer>
+            <LinkContainer to="/profile">
+              <NavItem>Profile</NavItem>
+            </LinkContainer>
           </Nav>
         </Navbar>
         <Grid>
