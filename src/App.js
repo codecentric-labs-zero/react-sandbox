@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Grid, Navbar, Nav, NavItem, Button } from 'react-bootstrap';
+import { Grid, Row, Col, Image, Carousel, Thumbnail, Navbar, Nav, NavItem, Button } from 'react-bootstrap';
 import { Router, Route, IndexRoute, IndexLink, browserHistory } from 'react-router';
 import { LinkContainer } from 'react-router-bootstrap';
 import { connect, Provider } from 'react-redux';
@@ -77,6 +77,63 @@ class Home extends Component {
         <p>Home</p>
         <p>{this.props.counter}</p>
         <Button bsSize="large" onClick={this.props.onClick}>Increment counter</Button>
+        <Row style={{marginTop:30,marginBottom:30}}>
+          <Col md={12}>
+            <Carousel style={{maxWidth:800, margin:'auto'}}>
+              <Carousel.Item>
+                <Image src="http://placehold.it/800x300" thumbnail />
+                <Carousel.Caption>
+                  <h3>First slide label</h3>
+                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+              <Carousel.Item>
+                <Image src="http://placehold.it/800x300" thumbnail />
+                <Carousel.Caption>
+                  <h3>Second slide label</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+              <Carousel.Item>
+                <Image src="http://placehold.it/800x300" thumbnail />
+                <Carousel.Caption>
+                  <h3>Third slide label</h3>
+                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+            </Carousel>
+          </Col>
+        </Row>
+        <Col xs={12} sm={6} md={4}>
+          <Thumbnail src="http://placehold.it/242x200" alt="242x200">
+            <h3>Thumbnail label</h3>
+            <p>Description</p>
+            <p>
+              <Button bsStyle="primary">Button</Button>&nbsp;
+              <Button bsStyle="default">Button</Button>
+            </p>
+          </Thumbnail>
+        </Col>
+        <Col xs={12} sm={6} md={4}>
+          <Thumbnail src="http://placehold.it/242x200" alt="242x200">
+            <h3>Thumbnail label</h3>
+            <p>Description</p>
+            <p>
+              <Button bsStyle="primary">Button</Button>&nbsp;
+              <Button bsStyle="default">Button</Button>
+            </p>
+          </Thumbnail>
+        </Col>
+        <Col xs={12} sm={6} md={4}>
+          <Thumbnail src="http://placehold.it/242x200" alt="242x200">
+            <h3>Thumbnail label</h3>
+            <p>Description</p>
+            <p>
+              <Button bsStyle="primary">Button</Button>&nbsp;
+              <Button bsStyle="default">Button</Button>
+            </p>
+          </Thumbnail>
+        </Col>
       </div>
     )
   }
