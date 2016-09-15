@@ -1,0 +1,140 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var /* istanbul ignore next */_react = require('react'); /* istanbul ignore next */var _react2 = _interopRequireDefault(_react);
+/* istanbul ignore next */require('./App.css');
+var /* istanbul ignore next */_reactBootstrap = require('react-bootstrap');
+var /* istanbul ignore next */_reactRouter = require('react-router');
+var /* istanbul ignore next */_reactRouterBootstrap = require('react-router-bootstrap');
+var /* istanbul ignore next */_reactRedux = require('react-redux');
+/* istanbul ignore next */require('bootstrap/dist/css/bootstrap.css');
+/* istanbul ignore next */require('bootstrap/dist/css/bootstrap-theme.css');
+var /* istanbul ignore next */_redux = require('redux');
+var /* istanbul ignore next */_AuthService = require('./AuthService'); /* istanbul ignore next */var _AuthService2 = _interopRequireDefault(_AuthService);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self, call) {if (!self) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call && (typeof call === "object" || typeof call === "function") ? call : self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;}
+
+var auth = new /* istanbul ignore next */_AuthService2.default(process.env.REACT_APP_AUTH0_CLIENT_ID, process.env.REACT_APP_AUTH0_DOMAIN);
+
+function increment() {
+  return {
+    type: 'INCREMENT' };
+
+}
+
+function counterReducer() {/* istanbul ignore next */var state = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0]; /* istanbul ignore next */var action = arguments[1];
+  switch (action.type) {
+    case 'INCREMENT':
+      return state + 1;
+    default:
+      return state;}
+
+}
+
+var store = /* istanbul ignore next */(0, _redux.createStore)(counterReducer); /* istanbul ignore next */var
+
+
+Page = function (_Component) {_inherits(Page, _Component);function Page() {_classCallCheck(this, Page);return _possibleConstructorReturn(this, (Page.__proto__ || Object.getPrototypeOf(Page)).apply(this, arguments));}_createClass(Page, [{ key: 'render', value: function render()
+    {
+      return (
+        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */null,
+          /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactBootstrap.Navbar, /* istanbul ignore next */null,
+            /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactBootstrap.Navbar.Header, /* istanbul ignore next */null,
+              /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactBootstrap.Navbar.Brand, /* istanbul ignore next */null,
+                /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactRouter.IndexLink, /* istanbul ignore next */{ to: '/' }, /* istanbul ignore next */'react-sandbox'))),
+
+
+            /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactBootstrap.Nav, /* istanbul ignore next */null,
+              /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactRouterBootstrap.LinkContainer, /* istanbul ignore next */{ to: '/categories' },
+                /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactBootstrap.NavItem, /* istanbul ignore next */null, /* istanbul ignore next */'Categories')),
+
+              /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactRouterBootstrap.LinkContainer, /* istanbul ignore next */{ to: '/profile' },
+                /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactBootstrap.NavItem, /* istanbul ignore next */null, /* istanbul ignore next */'Profile')))),
+
+
+
+          /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactBootstrap.Grid, /* istanbul ignore next */null,
+            this.props.children)));
+
+
+
+    } }]);return Page;}(_react.Component);
+
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    counter: state };
+
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    onClick: function /* istanbul ignore next */onClick() {
+      dispatch(increment());
+    } };
+
+}; /* istanbul ignore next */var
+
+Home = function (_Component2) {_inherits(Home, _Component2);function Home() {_classCallCheck(this, Home);return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));}_createClass(Home, [{ key: 'render', value: function render()
+    {
+      return (
+        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */null,
+          /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'p', /* istanbul ignore next */null, /* istanbul ignore next */'Home'),
+          /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'p', /* istanbul ignore next */null, this.props.counter),
+          /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactBootstrap.Button, /* istanbul ignore next */{ bsSize: 'large', onClick: this.props.onClick }, /* istanbul ignore next */'Increment counter')));
+
+
+    } }]);return Home;}(_react.Component);
+
+
+var HomeContainer = /* istanbul ignore next */(0, _reactRedux.connect)(
+mapStateToProps,
+mapDispatchToProps)(
+Home); /* istanbul ignore next */var
+
+Categories = function (_Component3) {_inherits(Categories, _Component3);function Categories() {_classCallCheck(this, Categories);return _possibleConstructorReturn(this, (Categories.__proto__ || Object.getPrototypeOf(Categories)).apply(this, arguments));}_createClass(Categories, [{ key: 'render', value: function render()
+    {
+      return (
+        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'p', /* istanbul ignore next */null, /* istanbul ignore next */'Categories'));
+
+    } }]);return Categories;}(_react.Component); /* istanbul ignore next */var
+
+
+Profile = function (_Component4) {_inherits(Profile, _Component4);function Profile() {_classCallCheck(this, Profile);return _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).apply(this, arguments));}_createClass(Profile, [{ key: 'render', value: function render()
+    {
+      return (
+        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'p', /* istanbul ignore next */null, /* istanbul ignore next */'Profile'));
+
+    } }]);return Profile;}(_react.Component); /* istanbul ignore next */var
+
+
+Login = function (_Component5) {_inherits(Login, _Component5);function Login() {_classCallCheck(this, Login);return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).apply(this, arguments));}_createClass(Login, [{ key: 'render', value: function render()
+    {
+      return (
+        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */null,
+          /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'p', /* istanbul ignore next */null, /* istanbul ignore next */'Login'),
+          /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactBootstrap.Button, /* istanbul ignore next */{ bsStyle: 'primary', onClick: auth.login }, /* istanbul ignore next */'Login')));
+
+
+    } }]);return Login;}(_react.Component); /* istanbul ignore next */var
+
+
+App = function (_Component6) {_inherits(App, _Component6);function App() {var _ref;var _temp, _this6, _ret;_classCallCheck(this, App);for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {args[_key] = arguments[_key];}return _ret = (_temp = (_this6 = _possibleConstructorReturn(this, (_ref = App.__proto__ || Object.getPrototypeOf(App)).call.apply(_ref, [this].concat(args))), _this6), _this6.
+    requireAuth = function (nextState, replace) {
+      if (!auth.loggedIn()) {
+        replace({ pathname: '/login' });
+      }
+    }, _temp), _possibleConstructorReturn(_this6, _ret);}_createClass(App, [{ key: 'render', value: function render()
+
+    {
+      return (
+        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactRedux.Provider, /* istanbul ignore next */{ store: store },
+          /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactRouter.Router, /* istanbul ignore next */{ history: /* istanbul ignore next */_reactRouter.browserHistory },
+            /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactRouter.Route, /* istanbul ignore next */{ path: '/', component: Page, auth: auth },
+              /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactRouter.IndexRoute, /* istanbul ignore next */{ component: HomeContainer }),
+              /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactRouter.Route, /* istanbul ignore next */{ path: 'categories', component: Categories }),
+              /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactRouter.Route, /* istanbul ignore next */{ path: 'profile', component: Profile, onEnter: this.requireAuth }),
+              /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_reactRouter.Route, /* istanbul ignore next */{ path: 'login', component: Login })))));
+
+
+
+
+    } }]);return App;}(_react.Component); /* istanbul ignore next */exports.default =
+
+
+App;

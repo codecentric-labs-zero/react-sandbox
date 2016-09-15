@@ -1,22 +1,78 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="./src/favicon.ico">
-    <title>React App</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` in this folder.
-      To create a production bundle, use `npm run build`.
-    -->
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>DRINKLY: A responsive design sandbox</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 </html>
+<body>
+<div id="root">
+  <section class="header">
+    <div class="container mobile-nav">
+      <div class="row">
+        <div class="twelve columns">
+          <img class="menu-icon" src="img/burger.png" />
+          <span class="logo">DRINKLY</span>
+          <img class="shopping-cart" src="img/cart.png" />
+        </div>
+      </div>
+    </div>
+    <div class="container desktop-nav">
+      <div class="row">
+        <div class="four columns">
+          <span class="logo">DRINKLY</span>
+        </div>
+        <div class="four columns">
+          <input type="text" class="search-field" placeholder="What are you looking for?" />
+        </div>
+        <div class="four columns">
+          <img class="shopping-cart" src="img/cart.png" />
+          <span class="login"><a href="#">LOG IN / SIGN UP</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="content">
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <span class="mobile-dropdown-link left">SHOP</span>
+          <span class="mobile-dropdown-link right">MAGAZINE</span>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="seven columns">
+          <div class="teaser">
+            <img src="http://www.placehold.it/539x438"  alt="Image" class="teaser-image">
+            <p class="top-headline">More than a digestive</p>
+            <h2 class="big-headline">Enjoy our Selection of Finest Bitters</h2>
+            <p class="sub-headline">Stock your bar with exclusive Bitters to be ready for your next coctail party.</p>
+            <button class="button">Shop now</button>
+          </div>
+        </div>
+        <div class="five columns">
+          <div class="teaser teaser-small">
+            <img src="http://www.placehold.it/379x228" alt="Image" class="teaser-image">
+            <p class="top-headline">Edinburgh at night</p>
+            <h2 class="big-headline">Take a Walk on the Wild Side in Scotlands Beautiful Capital</h2>
+            <a class="action-link">Read our travel guide</a>
+          </div>
+          <div class="teaser teaser-small">
+            <img src="http://www.placehold.it/379x228" alt="Image" class="teaser-image">
+            <p class="top-headline">Delicious</p>
+            <h2 class="big-headline">You Deserve Some Very Special Desserts</h2>
+            <a class="action-link">Read our recipes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overlay">
+      <input type="text" class="search-field" placeholder="What are you looking for?" /><br/>
+      <span class="login"><a href="#">LOG IN / SIGN UP</a></span>
+    </div>
+  </section>
+</div>
+</body>

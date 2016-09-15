@@ -1,0 +1,41 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var /* istanbul ignore next */_auth0Lock = require('auth0-lock'); /* istanbul ignore next */var _auth0Lock2 = _interopRequireDefault(_auth0Lock);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}var
+
+AuthService = function () {
+    function /* istanbul ignore next */AuthService(clientId, domain) {/* istanbul ignore next */_classCallCheck(this, AuthService);
+        // Configure Auth0
+        this.lock = new /* istanbul ignore next */_auth0Lock2.default(clientId, domain, {});
+        // Add callback for lock `authenticated` event
+        this.lock.on('authenticated', this._doAuthentication.bind(this));
+        // binds login functions to keep this context
+        this.login = this.login.bind(this);
+    }_createClass(AuthService, [{ key: '_doAuthentication', value: function _doAuthentication(
+
+        authResult) {
+            // Saves the user token
+            this.setToken(authResult.idToken);
+        } }, { key: 'login', value: function login()
+
+        {
+            // Call the show method to display the widget.
+            this.lock.show();
+        } }, { key: 'loggedIn', value: function loggedIn()
+
+        {
+            // Checks if there is a saved token and it's still valid
+            return !!this.getToken();
+        } }, { key: 'setToken', value: function setToken(
+
+        idToken) {
+            // Saves user token to localStorage
+            localStorage.setItem('id_token', idToken);
+        } }, { key: 'getToken', value: function getToken()
+
+        {
+            // Retrieves the user token from localStorage
+            return localStorage.getItem('id_token');
+        } }, { key: 'logout', value: function logout()
+
+        {
+            // Clear user token and profile data from localStorage
+            localStorage.removeItem('id_token');
+        } }]);return AuthService;}(); /* istanbul ignore next */exports.default = AuthService;
