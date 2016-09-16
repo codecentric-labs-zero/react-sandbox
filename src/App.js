@@ -5,11 +5,9 @@ import './custom.css';
 import burger from '../img/burger.png';
 import cart from '../img/cart.png';
 import close from '../img/close.png';
-import down from '../img/down.png';
-import search from '../img/search.png';
-import { Grid, Navbar, Nav, NavItem, Button } from 'react-bootstrap';
-import { Router, Route, IndexRoute, IndexLink, browserHistory } from 'react-router';
-import { LinkContainer } from 'react-router-bootstrap';
+import './App.css';
+import { Row, Col, Image, Carousel, Thumbnail, Button } from 'react-bootstrap';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { connect, Provider } from 'react-redux';
 import { createStore } from 'redux';
 import AuthService from './AuthService'
@@ -55,7 +53,7 @@ class Teaser extends Component {
     const subHeadline = this.props.small ? [] : <p className="sub-headline">{this.props.subHeadline}</p>;
     return (
       <div className={this.props.small ? 'teaser small-teaser' : 'teaser'}>
-        <img src={this.props.src} alt="Image" className="teaser-image" />
+        <img src={this.props.src} role="presentation" className="teaser-image" />
           <p className="top-headline">{this.props.topHeadline}</p>
           <h2 className="big-headline">{this.props.bigHeadline}</h2>
         {subHeadline}
@@ -93,9 +91,9 @@ class Page extends Component {
           <div className="container mobile-nav">
             <div className="row">
               <div className="twelve columns">
-                <img className="menu-icon" src={menuIcon} alt="Image" onClick={this.toggleOverlay.bind(this)} />
+                <img className="menu-icon" src={menuIcon} alt="Toggle menu" onClick={this.toggleOverlay.bind(this)} />
                 <span className="logo">DRINKLY</span>
-                <img className="shopping-cart" src={cart} />
+                <img className="shopping-cart" src={cart} alt="Shopping cart" />
               </div>
             </div>
           </div>
@@ -108,7 +106,7 @@ class Page extends Component {
                 <input type="text" className="search-field" placeholder="What are you looking for?" />
               </div>
               <div className="four columns">
-                <img className="shopping-cart" src={cart} />
+                <img className="shopping-cart" src={cart} alt="Shopping cart" />
                 <span className="login"><a href="#">LOG IN / SIGN UP</a></span>
               </div>
             </div>
@@ -149,6 +147,63 @@ class Home extends Component {
         <p>Home</p>
         <p>{this.props.counter}</p>
         <Button bsSize="large" onClick={this.props.onClick}>Increment counter</Button>
+        <Row style={{marginTop:30,marginBottom:30}}>
+          <Col md={12}>
+            <Carousel style={{maxWidth:800, margin:'auto'}}>
+              <Carousel.Item>
+                <Image src="http://placehold.it/800x300" thumbnail />
+                <Carousel.Caption>
+                  <h3>First slide label</h3>
+                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+              <Carousel.Item>
+                <Image src="http://placehold.it/800x300" thumbnail />
+                <Carousel.Caption>
+                  <h3>Second slide label</h3>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+              <Carousel.Item>
+                <Image src="http://placehold.it/800x300" thumbnail />
+                <Carousel.Caption>
+                  <h3>Third slide label</h3>
+                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+            </Carousel>
+          </Col>
+        </Row>
+        <Col xs={12} sm={6} md={4}>
+          <Thumbnail src="http://placehold.it/242x200" alt="242x200">
+            <h3>Thumbnail label</h3>
+            <p>Description</p>
+            <p>
+              <Button bsStyle="primary">Button</Button>&nbsp;
+              <Button bsStyle="default">Button</Button>
+            </p>
+          </Thumbnail>
+        </Col>
+        <Col xs={12} sm={6} md={4}>
+          <Thumbnail src="http://placehold.it/242x200" alt="242x200">
+            <h3>Thumbnail label</h3>
+            <p>Description</p>
+            <p>
+              <Button bsStyle="primary">Button</Button>&nbsp;
+              <Button bsStyle="default">Button</Button>
+            </p>
+          </Thumbnail>
+        </Col>
+        <Col xs={12} sm={6} md={4}>
+          <Thumbnail src="http://placehold.it/242x200" alt="242x200">
+            <h3>Thumbnail label</h3>
+            <p>Description</p>
+            <p>
+              <Button bsStyle="primary">Button</Button>&nbsp;
+              <Button bsStyle="default">Button</Button>
+            </p>
+          </Thumbnail>
+        </Col>
       </div>
     )
   }
